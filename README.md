@@ -1,4 +1,4 @@
-# Documentation Test Project
+# Documentation Test Project - doc
 
 This project is a test setup for GitHub Pages documentation workflow, copied from the Scopy project.
 
