@@ -116,4 +116,3 @@ specific instrument documentation.
    ad74413r
    max14906
    faults
-   ../registermap/registermap

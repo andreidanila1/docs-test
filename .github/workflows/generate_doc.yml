@@ -54,7 +54,6 @@ jobs:
     - name: Build doc
       working-directory: docs
       run: |
-        python3 extract_macros.py ../ user_guide/preferences_table.rst
         export ADOC_DOC_VERSION=${{ github.ref_name }}
         make html SPHINXOPTS='-W --keep-going'
 
