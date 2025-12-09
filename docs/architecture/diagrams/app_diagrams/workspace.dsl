@@ -209,12 +209,6 @@ workspace "Scopy ADI" {
                     tags "Library"
                     group "gr-util"
                 }
-
-                commonUtilities = component "Common Utilities" {
-                    description "Shared utilities, helper functions, data structures, and cross-cutting functionality"
-                    tags "Library"
-                    group "common"
-                }
                 
                 // COMPONENT RELATIONSHIPS
 
@@ -270,7 +264,6 @@ workspace "Scopy ADI" {
                 uiFramework -> packageManager "manages styles elements from packages"
 
                 // Library Dependencies
-                iioUtilities -> commonUtilities "uses shared utilities"
                 iioWidgets -> iioUtilities "uses IIO communication"
                 iioWidgets -> uiFramework "extends UI framework"
 
@@ -444,9 +437,12 @@ workspace "Scopy ADI" {
                     description "The ADRV9002 (Jupiter) plugin provides a comprehensive interface for controlling and configuring the ADRV9002 dual-channel RF transceiver"
                     tags "Plugin"
                 }
+
+                //Relations
                 adrv9002Plugin -> pluginInterface "implements" {
                     tags "PluginImplementation"
                 }
+                adrv9002Plugin -> iioWidgets "use"
 
             }
 
@@ -531,7 +527,6 @@ workspace "Scopy ADI" {
             include iioUtilities
             include iioWidgets
             include gnuRadioWidgets
-            include commonUtilities
             title "Supporting Libraries"
             description "Reusable library components"
         }
@@ -637,6 +632,7 @@ workspace "Scopy ADI" {
             include *
             exclude scopyApplication
             include pluginInterface
+            include iioWidgets
             title "ADRV9002 Package"
             description "The plugins from ADRV9002 package"
         }
